@@ -1,15 +1,14 @@
 import Main from '../../../components/Main';
 import Dashboard from '../../../components/Dashboard';
 import Login from '../../../components/Login';
+import Loading from 'components/Loading';
+import { useAuth } from 'context/AuthContext';
 
 export default function DashboardPage() {
-  const isAuthenticated = false;
-
-  let children = <Login />;
-
-  if (isAuthenticated) {
-    children = <Dashboard />;
-  }
-
-  return <Main>{children}</Main>;
+  return (
+    <Main>
+      {' '}
+      <Dashboard />
+    </Main>
+  );
 }

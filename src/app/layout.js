@@ -1,6 +1,8 @@
 import { Fugaz_One, Open_Sans } from 'next/font/google';
 import './globals.css';
-
+import Link from 'next/link';
+import { AuthProvider } from '../../context/AuthContext';
+Link;
 const opensans = Open_Sans({
   subsets: ['latin'],
 });
@@ -18,29 +20,33 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const header = (
     <header className="p-4 sm:p-8 flex items-center justify-between gap-4">
-      <h1 className={`text-base sm:text-lg textGradient  ${fugaz.className}`}>
-        MindfulMe
-      </h1>
+      <Link href={'/'}>
+        <h1 className={`text-base sm:text-lg textGradient  ${fugaz.className}`}>
+          MindfulMe
+        </h1>
+      </Link>
 
       <div className="flex items-center justify-between">Placehoder....</div>
     </header>
   );
 
   const footer = (
-    <foot className="p-4 sm:p-8 grid place-items-center">
+    <footer className="p-4 sm:p-8 grid place-items-center">
       <p className={`text-indigo-400 ${fugaz.className}`}>Created with ❤️ </p>
-    </foot>
+    </footer>
   );
 
   return (
     <html lang="en">
-      <body
-        className={`${opensans.className} w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-700`}
-      >
-        <header>{header}</header>
-        <main className="flex-1">{children}</main>
-        <footer className="p-4">{footer}</footer>
-      </body>
+      <AuthProvider>
+        <body
+          className={`${opensans.className} w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-700`}
+        >
+          <header>{header}</header>
+          <main className="flex-1">{children}</main>
+          <footer className="p-4">{footer}</footer>
+        </body>
+      </AuthProvider>
     </html>
   );
 }
