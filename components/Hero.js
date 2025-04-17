@@ -6,7 +6,7 @@ import { Fugaz_One } from 'next/font/google'; // Import the Fugaz One font
 import Calender from './Calendar';
 import CallToAction from './CallToAction';
 const fugaz = Fugaz_One({
-  weight: '400', // Adjust the weight if needed
+  weight: '400', // Adjust the weight
   subsets: ['latin'],
 });
 
